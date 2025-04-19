@@ -3,7 +3,7 @@
 // Funktion, um das Bild zu laden und an einer bestimmten Position anzuzeigen
 function loadTowerImage() {
     // Bildquelle
-    const imgSrc = 'tower.png';
+    const imgSrc = 'Tower.png';
 
     // Variablen für die Position des Bildes
     const left = 931;  // Beispielwert für "left"
