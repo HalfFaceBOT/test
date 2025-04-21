@@ -9,8 +9,8 @@ window.onload = function() {
     const height = 50;        // Höhe in px
     const startTop = 650;     // Abstand von oben in px (immer gleich)
     
-    // Zufällige `left`-Position im Bereich von 720 bis 1120
-    const startLeft = Math.floor(Math.random() * (1120 - 720 + 1)) + 720;
+    // Zufällige `left`-Position im Bereich von 60 bis 420
+    const startLeft = Math.floor(Math.random() * (420 - 60 + 1)) + 60;
 
     // Größe setzen
     soldat.style.width = width + "px";
@@ -22,6 +22,6 @@ window.onload = function() {
 
     // Bild sichtbar machen, nachdem es positioniert wurde
     setTimeout(function() {
-        soldat.style.display = "block";  // Bild nach der Positionierung sichtbar machen
-    }, 10); // Verzögerung mit minimalem Wert (10 ms)
+        soldat.style.display = "block";
+    }, 10);
 };
