@@ -1,27 +1,31 @@
-window.onload = function() {
+window.onload = function () {
     const soldat = document.getElementById("soldat");
+    const container = document.getElementById("spiel-container");
 
-    // Bild unsichtbar machen, bevor es positioniert wird
-    soldat.style.display = "none";  // Bild vorerst unsichtbar
+    // Bild ausblenden, bevor es positioniert wird
+    soldat.style.display = "none";
 
-    // 🔧 EINSTELLUNGEN – Hier kannst du alles anpassen:
-    const width = 50;         // Breite in px
-    const height = 50;        // Höhe in px
-    const startTop = 650;     // Abstand von oben in px (immer gleich)
-    
-    // Zufällige `left`-Position im Bereich von 60 bis 420
-    const startLeft = Math.floor(Math.random() * (420 - 60 + 1)) + 60;
+    // 🔧 EINSTELLUNGEN – Größe
+    const width = 50;
+    const height = 50;
+
+    // Zufälliger left-Wert (zwischen 10% und 80% der Containerbreite)
+    const leftPercent = Math.random() * (0.8 - 0.1) + 0.1;
+    const left = container.offsetWidth * leftPercent;
+
+    // Fester top-Wert (68% der Containerhöhe)
+    const top = container.offsetHeight * 0.68;
 
     // Größe setzen
     soldat.style.width = width + "px";
     soldat.style.height = height + "px";
 
     // Position setzen
-    soldat.style.left = startLeft + "px";
-    soldat.style.top = startTop + "px";
+    soldat.style.left = left + "px";
+    soldat.style.top = top + "px";
 
-    // Bild sichtbar machen, nachdem es positioniert wurde
-    setTimeout(function() {
+    // Bild anzeigen
+    setTimeout(() => {
         soldat.style.display = "block";
     }, 10);
 };
