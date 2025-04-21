@@ -7,9 +7,10 @@ window.onload = function() {
     // 🔧 EINSTELLUNGEN – Hier kannst du alles anpassen:
     const width = 50;         // Breite in px
     const height = 50;        // Höhe in px
-    const startTop = 650;     // Abstand von oben in px
-    const startLeft = 750; 
-
+    const startTop = 650;     // Abstand von oben in px (immer gleich)
+    
+    // Zufällige `left`-Position im Bereich von 720 bis 1120
+    const startLeft = Math.floor(Math.random() * (1120 - 720 + 1)) + 720;
 
     // Größe setzen
     soldat.style.width = width + "px";
