@@ -1,76 +1,78 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta charset="UTF-8" />
-  <title>Spiel</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-  <style>
-    html, body {
-      margin: 0;
-      padding: 0;
-      background: #000;
-      overflow: hidden;
-      height: 100vh;
-      width: 100vw;
-      touch-action: none;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
+    <meta charset="UTF-8">
+    <title>Spiel</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+            background-color: #000;
+            overflow: hidden;
+            height: 100%;
+            touch-action: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
 
-    #spiel-container {
-      position: relative;
-      width: 100vh * 9 / 16; /* 9:16 Format automatisch */
-      height: 100vh;
-      max-width: 100vw;
-      max-height: 100vh;
-      aspect-ratio: 9 / 16;
-      overflow: hidden;
-      background: black;
-    }
+        #spiel-container {
+            position: relative;
+            width: 100vw;
+            height: calc(100vw * 16 / 9); /* 9:16 Format */
 
-    #map {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      position: absolute;
-      top: 0;
-      left: 0;
-    }
+            max-height: 100vh;
+            max-width: calc(100vh * 9 / 16); /* Begrenzt auf Höhe */
+            background-color: #000;
+            overflow: hidden;
+        }
 
-    #soldat {
-      position: absolute;
-      z-index: 1;
-      display: none;
-    }
-  </style>
+        #map {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        #soldat {
+            position: absolute;
+            width: 80px;
+            z-index: 1;
+            display: none;
+            pointer-events: none;
+        }
+    </style>
 </head>
 <body>
-  <div id="spiel-container">
-    <img id="map" src="map.jpg" alt="Spielkarte" />
-    <img id="soldat" src="soldat.jpg" alt="Soldat" />
-  </div>
+    <div id="spiel-container">
+        <img id="map" src="map.jpg">
+        <img id="soldat" src="soldat.jpg">
+    </div>
+    
 
-  <script src="soldat.js"></script>
+    <script src="soldat.js"></script>
 
-  <script>
-    // Zoom komplett deaktivieren
-    document.addEventListener('gesturestart', e => e.preventDefault());
-    document.addEventListener('gesturechange', e => e.preventDefault());
-    document.addEventListener('gestureend', e => e.preventDefault());
+    <!-- Zoom und Gesten deaktivieren -->
+    <script>
+        document.addEventListener('gesturestart', e => e.preventDefault());
+        document.addEventListener('gesturechange', e => e.preventDefault());
+        document.addEventListener('gestureend', e => e.preventDefault());
 
-    window.addEventListener('wheel', function (e) {
-      if (e.ctrlKey) e.preventDefault();
-    }, { passive: false });
+        window.addEventListener('wheel', function(e) {
+            if (e.ctrlKey) e.preventDefault();
+        }, { passive: false });
 
-    let lastTouchEnd = 0;
-    document.addEventListener('touchend', function (event) {
-      const now = Date.now();
-      if (now - lastTouchEnd <= 300) {
-        event.preventDefault();
-      }
-      lastTouchEnd = now;
-    }, false);
-  </script>
+        let lastTouchEnd = 0;
+        document.addEventListener('touchend', function (event) {
+            const now = Date.now();
+            if (now - lastTouchEnd <= 300) {
+                event.preventDefault();
+            }
+            lastTouchEnd = now;
+        }, false);
+    </script>
 </body>
 </html>
