@@ -37,21 +37,22 @@
             left: 0;
         }
 
-        #soldat {
-            position: absolute;
-            width: 80px;
-            z-index: 1;
-            display: none;
-            pointer-events: none;
+        
+
+        /* Optionale Anpassungen für mobile Geräte */
+        @media (max-width: 767px) {
+            #spiel-container {
+                height: calc(100vh * 16 / 9); /* Begrenzt auf Höhe */
+            }
         }
     </style>
 </head>
 <body>
     <div id="spiel-container">
         <img id="map" src="map.png">
-        
+        <!-- Beispiel für die Tower Enemy Positionierung -->
+        <img id="tower-enemy" src="towerenemy.png" style="position: absolute; top: 10vh; left: 20vw; width: 80px; z-index: 10;">
     </div>
-    
 
     <script src="towerenemy.js"></script>
     <!-- Zoom und Gesten deaktivieren -->
